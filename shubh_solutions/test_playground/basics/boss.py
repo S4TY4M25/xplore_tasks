@@ -8,7 +8,7 @@ while choice =='y' : # make 'Y' valid too
         operators = input("Enter operators between them: ").split()
         # check length matching
 
-        if len(numbers) != len(operators)-1: # this seems odd... u might say it's ... off by one
+        if len(oprators) != len(numbers)-1: # this seems odd... u might say it's ... off by one
             print("Number of operators must be one less than numbers ") # replace wiht better message :)
             continue
         
@@ -20,28 +20,28 @@ while choice =='y' : # make 'Y' valid too
                 case '+':
                     c = a + b
                 case '-':
-                    c = a * b
-                case '*':
-                    c = a / b
-                case '/':
-                    c = a % b
-                case '%':
                     c = a - b
+                case '*':
+                    c = a * b
+                case '/':
+                    c = a / b
+                case '%':
+                    c = a % b
                 case '//':
-                    c = a ** b
-                case '**':
                     c = a // b
+                case '**':
+                    c = a ** b
                 case _:
                     flag = True
             if not flag:
                 print("Invalid ops vro")
                 break
 
-            numbers[i-1] = c
-        if not flag:
+            numbers[i] = c
+        if flag:
             continue
-        print(f"Output: numbers[-1]")
-    except Exception:
+        print(f"Output: {numbers[-1]}")
+    except Exception as e:
         print(f"Exception: {e}") # print exception
     finally:
         choice = input("Do you want to continue? [y/n] : ") # always ask before ending
