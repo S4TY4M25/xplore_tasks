@@ -1,21 +1,22 @@
 choice = 'y'
 
-while choice =='y' : # make 'Y' valid too
+while choice =='y' or choice == 'Y' : # make 'Y' valid too
     try:
         # typecast the below 2 to a list
         
-        numbers =input("Enter the input numbers separated by spaces: ")
-        operators = input("Enter operators between them: ")
+        numbers =list(input("Enter the input numbers separated by spaces: ").split(" "))
+        numbers=[int(x) for x in numbers]
+        operators = list(input("Enter operators between them: ").split(" "))
 
         # check length matching
 
-        if len(numbers) != len(operators): # this seems odd... u might say it's ... off by one
-            print("What u doin fam ? ") # replace wiht better message :)
+        if len(numbers)-1 != len(operators): # this seems odd... u might say it's ... off by one
+            print("invalid") # replace wiht better message :)
             continue
         
-        flag = False # huh this seems inverted
-        for i in range(len(numbers)): # indexing range fix
-            a, b, op = numbers[i-1], numbers[i], operators[i]
+        flag = True # huh this seems inverted
+        for i in range(1,len(numbers)): # indexing range fix
+            a, b, op = numbers[i-1], numbers[i], operators[i-1]
             # correct the ops
             match op:
                 case '+':
@@ -33,7 +34,7 @@ while choice =='y' : # make 'Y' valid too
                 case '**':
                     c = a // b
                 case _:
-                    flag = True
+                    flag = False
             if not flag:
                 print("Invalid ops vro")
                 break

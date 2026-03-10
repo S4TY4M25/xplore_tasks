@@ -4,22 +4,36 @@
 age = input("Enter age") # ahh yes age is str , definitely
 
 if age <= 0:
-    print("Lil bro")
-elif age > 100:
-    print("Pay up taxes, person")
+    print("Invalid age")
+elif age >= 60:
+    print("Senior citizen")
+elif age <18:
+    print("Underage")
 else:
-    print("U still good, unc?")
+    print("Normal age")
 
 
 # complete the match
 
-day = input("Enter the day number") # dont forget to typecast to int
+day = int(input("Enter the day number")) # dont forget to typecast to int
 
-print("Today is: ") # how can you avoid printing newline here?
+print("Today is: ", end = "") # how can you avoid printing newline here?
 
 match day:
     case 1:
         print("Monday")
+    case 2:
+        print("Tuesday")
+    case 3:
+        print("Wednesday")
+    case 4:
+        print("Thursday")
+    case 5:
+        print("Friday")
+    case 6:
+        print("Saturday")
+    case 7:
+        print("Sunday")
     # fill in the rest
     case _:
         print("Funday !") 
@@ -28,7 +42,7 @@ match day:
 
 try:
     print(1/0)
-except IndentationError: # ahh fix the syntax, also when u don't know the error what will u use?
+except Exception as err:# ahh fix the syntax, also when u don't know the error what will u use?
     print("what u tryna do bro")
 finally:
     print("So u done?")
