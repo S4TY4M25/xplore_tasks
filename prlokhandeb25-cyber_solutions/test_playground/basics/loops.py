@@ -13,7 +13,7 @@ hobbies = ["Marvel","Anime","Games"]
 for name, nickname, hobby in zip(names, nicknames, hobbies):
     print(f"Name:{name}, Nickname:{nickname}, Hobby:{hobby} ")
 
-# try zip for adding this array to the above 2 and printing all 3 in loop
+
 
 
 choice = 'y'
